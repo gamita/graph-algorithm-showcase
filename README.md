@@ -11,7 +11,7 @@ This project is a showcase of several graph algorithm demos. The showcase includ
 - Breadth First Search
 - Dijkstra's Algorithm
 - Bidirectional Dijkstra's Algorithm
-- A*
+- A* Algorithm
 - Bellman–Ford Algorithm
 - Ant Colony Optimization
 
@@ -88,5 +88,5 @@ https://docs.oracle.com/cd/E56133_01/latest/reference/analytics/builtins.html
 - Neo4j [ Algorithms ]  
 https://neo4j.com/docs/graph-data-science/current/algorithms/  
 
-- Qiita: 2点間-最短経路アルゴリズム Showcase (Japanese Article)  
-The link will be posted.
+- Qiita: 2点間-最短経路アルゴリズム Showcase (Japanese Blog)  
+https://qiita.com/gamita/items/9e2df8cfa1a7448aca53
