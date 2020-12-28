@@ -160,5 +160,80 @@ export default class GraphCatalog {
 
     }
 
+
+
+
+    /**
+     * Create Regular Polygon Graph
+     * 
+     * @param numOfPolygon 
+     * @param radius
+     * @param lackRate
+     */
+    public static createRegularPolygon(numOfPolygon: number, radius: number, lackRate: number): Graph {
+
+        let regularPolygonGraph: Graph = new Graph();
+
+        // Add nodes
+        for (let index = 1; index <= numOfPolygon; index++) {
+
+            let theta = Math.PI * 2 * ((index - 1) / numOfPolygon);
+            let _x = (Math.sin(theta) * radius);
+            let _y = (Math.cos(theta) * radius);
+            // assign nodes clock-wise
+            regularPolygonGraph.addNode({ id: index, x: _x, y: (_y - radius) * -1 });
+
+        }
+
+
+        // Add edges
+        let random: Chance = new Chance('NiceSeed'); // seed = NiceSeed
+        for (let from = 1; from <= numOfPolygon; from++) {
+
+            for (let to = from + 1; to <= numOfPolygon; to++) {
+                if (random.floating({ min: 0, max: 1 }) >= lackRate) {
+                    regularPolygonGraph.addEdge({ from: from, to: to });
+                }
+            }
+
+        }
+
+        regularPolygonGraph.assignEdgeLength('length');
+        regularPolygonGraph.assignNodeTextById();
+
+        return regularPolygonGraph;
+
+    }
+
+
+
+
+    /**
+     * Create Regular Polygon Graph and Center Node
+     * 
+     * @param numOfPolygon 
+     * @param radius 
+     * @param lackRate 
+     */
+    public static createRegularPolygonWithCenter(numOfPolygon: number, radius: number, lackRate: number): Graph {
+
+        let regularPolygonGraph = this.createRegularPolygon(numOfPolygon, radius, lackRate);
+
+        // Add center node.
+        regularPolygonGraph.addNode({ id: 0, x: 0, y: radius });
+
+        // Add edge from center node to other nodes.
+        for (let index = 1; index <= numOfPolygon; index++) {
+            regularPolygonGraph.addEdge({ from: 0, to: index });
+        }
+
+        regularPolygonGraph.assignEdgeLength('length');
+        regularPolygonGraph.assignNodeTextById();
+
+        return regularPolygonGraph;
+
+    }
+
+
 }
 

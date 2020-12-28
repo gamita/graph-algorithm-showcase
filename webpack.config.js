@@ -83,11 +83,16 @@ module.exports = {
             filename: 'ant-colony-optimization.html',
         }),
 
+        new HtmlWebpackPlugin({
+            template: './html/prim.html',
+            filename: 'prim.html',
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
-              { from: "images", to: "images" },
+                { from: "images", to: "images" },
             ],
-          }),
+        }),
 
         new WriteFilePlugin()
     ],

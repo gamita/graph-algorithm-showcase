@@ -378,7 +378,6 @@ export default class Graph {
      * 
      * Assign Euclid distance property on edge, calculating by x and y properties
      * 
-     * 
      * @param distancePropertyName 
      */
     public assignEdgeLength(distancePropertyName: string): void {
@@ -397,6 +396,14 @@ export default class Graph {
     }
 
 
+    /**
+     * Assign id-text as node displayed text
+     */
+    public assignNodeTextById(): void {
+
+        this.getAllNodes().forEach((node: Node) => this.putNodeLabel(node.id, node.id.toString()));
+
+    }
 
 
 

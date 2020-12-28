@@ -16,7 +16,7 @@ This project is a showcase of several graph algorithm demos. The showcase includ
 - Ant Colony Optimization
 
 #### Other Path Fiding
-- Minimum Spanning Tree: Prim's Algorithm ( in preparation now )
+- Minimum Spanning Tree: Prim's Algorithm
 - Fattest Path ( in preparation now )
 
 ### Community Detection

@@ -5,6 +5,7 @@ import BidirectionalDijkstraAlgorithm from './algorithms/BidirectionalDijkstraAl
 import AStarAlgorithm from './algorithms/AStarAlgorithm'
 import BellmanFordAlgorithm from './algorithms/BellmanFordAlgorithm'
 import AntColonyOptimizationAlgorithm from './algorithms/AntColonyOptimizationAlgorithm'
+import PrimAlgorithm from './algorithms/PrimAlgorithm'
 
 
 export var breadthFirstSearch = new BreadthFirstSearchAlgorithm();
@@ -23,3 +24,6 @@ export var bellmanFord = new BellmanFordAlgorithm();
 
 
 export var antColony = new AntColonyOptimizationAlgorithm();
+
+
+export var prim = new PrimAlgorithm();
