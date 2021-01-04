@@ -183,7 +183,7 @@ export default class AntColonyAlgorithm {
             });
 
             // display current min distance on the goal node
-            this.graph.putNodeLabel(this.GOAL_NODE_ID, this.shortestDistance.toFixed(0))
+            this.graph.putNodeText(this.GOAL_NODE_ID, this.shortestDistance.toFixed(0))
 
         }
 

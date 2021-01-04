@@ -109,7 +109,7 @@ export default class FattestPathAlgorithm {
 
         // pick a max flow node from the unfixed node set
         let maxFlowNode: Node = this.getMaxFlowNode();
-        if (this.START_NODE_ID != maxFlowNode.id) this.graph.putNodeLabel(maxFlowNode.id, maxFlowNode['flow'].toFixed(0));
+        if (this.START_NODE_ID != maxFlowNode.id) this.graph.putNodeText(maxFlowNode.id, maxFlowNode['flow'].toFixed(0));
         this.graph.putNodeColor(maxFlowNode.id, 'cornflowerblue');
 
 

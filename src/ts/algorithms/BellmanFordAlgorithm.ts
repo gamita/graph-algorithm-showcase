@@ -31,6 +31,7 @@ export default class BellmanFordAlgorithm {
         this.graph.addNode({ id: 101, x: -100, y: 1000, label: 'Warp Node', color: 'darkslateblue', shape: 'diamond' });
         this.graph.addEdge({ id: 10000, from: 11, to: 101, length: -100, label: 'Length: -100', arrows: 'to', dashes: true, font: { size: 22 } });
         this.graph.addEdge({ id: 10001, from: 101, to: 97, length: -100, label: 'Length: -100', arrows: 'to', dashes: true, font: { size: 22 } });
+        this.graph.putAllEdgeProperty('arrows', 'to');
 
         // set Start / Goal label
         this.graph.decorateAsStartNode(this.START_NODE_ID);
@@ -57,7 +58,6 @@ export default class BellmanFordAlgorithm {
         // set start node distance ( = 0) and init other nodes distance
         this.graph.putAllNodeProperty('distance', Number.MAX_VALUE);
         this.graph.putNodeProperty(this.START_NODE_ID, 'distance', 0);
-        this.graph.putAllEdgeProperty('arrows', 'to');
 
         this.graph.drawAt("graph");
 
@@ -115,7 +115,7 @@ export default class BellmanFordAlgorithm {
 
                     // update current distance value by new distance value
                     _this.graph.putNodeProperty(neighborNode.id, 'distance', newCandidateDistance);
-                    _this.graph.putNodeLabel(neighborNode.id, newCandidateDistance.toFixed(0));
+                    _this.graph.putNodeText(neighborNode.id, newCandidateDistance.toFixed(0));
                     _this.graph.putNodeProperty(neighborNode.id, 'parentNodeId', sourceNode.id);
                     _this.graph.putNodeProperty(neighborNode.id, 'parentEdgeId', neighborEdge.id);
                     _this.graph.putNodeColor(neighborNode.id, 'gold');

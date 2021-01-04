@@ -135,7 +135,7 @@ export default class BidirectionalDijkstraAlgorithm {
         // pick a min distance node from unfixed node set
         let minDistanceNode: Node = this.getMinDistanceNode(nameSpace);
 
-        this.graph.putNodeLabel(minDistanceNode.id, minDistanceNode[nameSpace + 'distance'].toFixed(0));
+        this.graph.putNodeText(minDistanceNode.id, minDistanceNode[nameSpace + 'distance'].toFixed(0));
         this.graph.putNodeFont(minDistanceNode.id, '18px arial ' + (nameSpace == this.NAME_SPACE_START ? 'cornflowerblue' : 'lightseagreen'));
         this.graph.putNodeColor(minDistanceNode.id, (nameSpace == this.NAME_SPACE_START ? 'cornflowerblue' : 'lightseagreen'));
 

@@ -270,9 +270,9 @@ export default class Graph {
      * @param nodeId 
      * @param label 
      */
-    public putNodeLabel(nodeId: string | number, label: string) {
+    public putNodeText(nodeId: string | number, labelText: string) {
 
-        this.putNodeProperty(nodeId, 'label', label);
+        this.putNodeProperty(nodeId, 'label', labelText);
 
     }
 
@@ -301,7 +301,7 @@ export default class Graph {
 
         this.putNodeColor(nodeId, 'dodgerblue');
         this.putNodeShape(nodeId, 'star');
-        this.putNodeLabel(nodeId, 'Start');
+        this.putNodeText(nodeId, 'Start');
         this.putNodeFont(nodeId, '24px arial dodgerblue');
 
     }
@@ -316,7 +316,7 @@ export default class Graph {
 
         this.putNodeColor(nodeId, 'dodgerblue');
         this.putNodeShape(nodeId, 'star');
-        this.putNodeLabel(nodeId, 'Goal');
+        this.putNodeText(nodeId, 'Goal');
         this.putNodeFont(nodeId, '24px arial dodgerblue');
 
     }
@@ -375,6 +375,20 @@ export default class Graph {
 
 
     /**
+     * Put a edge label property
+     * 
+     * @param edgeId 
+     * @param label 
+     */
+    public putEdgeText(edgeId: string | number, labelText: string) {
+
+        this.putEdgeProperty(edgeId, 'label', labelText);
+
+    }
+
+
+
+    /**
      * 
      * Assign Euclid distance property on edge, calculating by x and y properties
      * 
@@ -401,7 +415,7 @@ export default class Graph {
      */
     public assignNodeTextById(): void {
 
-        this.getAllNodes().forEach((node: Node) => this.putNodeLabel(node.id, node.id.toString()));
+        this.getAllNodes().forEach((node: Node) => this.putNodeText(node.id, node.id.toString()));
 
     }
 

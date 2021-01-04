@@ -105,7 +105,7 @@ export default class AStartAlgorithm {
 
         // pick a min distance node from unfixed node set
         let minDistanceNode: Node = this.getMinDistanceNode();
-        this.graph.putNodeLabel(minDistanceNode.id, minDistanceNode['distance'].toFixed(0));
+        this.graph.putNodeText(minDistanceNode.id, minDistanceNode['distance'].toFixed(0));
         this.graph.putNodeColor(minDistanceNode.id, 'cornflowerblue');
 
 

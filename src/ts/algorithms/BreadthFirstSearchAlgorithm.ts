@@ -111,7 +111,7 @@ export default class BreadthFirstSearchAlgorithm {
                 _this.graph.putNodeProperty(neighborNode.id, 'visited', true);
                 _this.graph.putNodeProperty(neighborNode.id, 'parentNodeId', parentNodeId);
                 _this.graph.putNodeProperty(neighborNode.id, 'parentEdgeId', neighborEdge.id);
-                _this.graph.putNodeLabel(neighborNode.id, distance.toFixed(0));
+                _this.graph.putNodeText(neighborNode.id, distance.toFixed(0));
                 _this.graph.putNodeColor(neighborNode.id, 'cornflowerblue');
 
                 _this.queue.push(<number>neighborNode.id);
