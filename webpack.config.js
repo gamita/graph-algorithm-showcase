@@ -88,6 +88,11 @@ module.exports = {
             filename: 'prim.html',
         }),
 
+        new HtmlWebpackPlugin({
+            template: './html/fattest-path.html',
+            filename: 'fattest-path.html',
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
                 { from: "images", to: "images" },

@@ -17,7 +17,7 @@ This project is a showcase of several graph algorithm demos. The showcase includ
 
 #### Other Path Fiding
 - Minimum Spanning Tree: Prim's Algorithm
-- Fattest Path ( in preparation now )
+- Fattest Path
 
 ### Community Detection
 - Label Propagation ( in preparation now )

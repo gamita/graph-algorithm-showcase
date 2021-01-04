@@ -505,10 +505,18 @@ export default class Graph {
     /**
      * Trace path from a given node and give a color to the trace path.
      * 
+     * @param nodeId 
+     * @param traceEdgePropName 
+     * @param traceNodePropName 
+     * @param isSetWidth 
+     * @param width 
+     * @param isSetColor 
+     * @param color 
      */
-    public tracePath(nodeId: number | string, traceEdgePropName: string, traceNodePropName: string) {
+    public tracePath(nodeId: number | string, traceEdgePropName: string, traceNodePropName: string,
+        isSetWidth: boolean = true, width: number = 7, isSetColor: boolean = true, color: string = 'orange') {
 
-        this.traceToNext(nodeId, traceEdgePropName, traceNodePropName);
+        this.traceToNext(nodeId, traceEdgePropName, traceNodePropName, isSetWidth, width, isSetColor, color);
 
     }
 
@@ -517,20 +525,28 @@ export default class Graph {
     /**
      * Hop to next edge and node to give a color.
      * 
-     * @param nodeId 
+     * @param nextNodeId 
+     * @param traceEdgePropName 
+     * @param traceNodePropName 
+     * @param isSetWidth 
+     * @param width 
+     * @param isSetColor 
+     * @param color 
      */
-    private traceToNext(nextNodeId: number | string, traceEdgePropName: string, traceNodePropName: string) {
+    private traceToNext(nextNodeId: number | string, traceEdgePropName: string, traceNodePropName: string,
+        isSetWidth: boolean = true, width: number = 7, isSetColor: boolean = true, color: string = 'orange') {
 
         let nextNode: Node = this.getNode(nextNodeId);
 
         let nextEdge: Edge = this.getEdge(nextNode[traceEdgePropName]);
 
         // marking a edge on shortest pass
-        this.putEdgeProperty(nextEdge.id, 'color', { color: 'orange' });
-        this.putEdgeProperty(nextEdge.id, 'width', 7);
+        if (isSetColor) this.putEdgeProperty(nextEdge.id, 'color', { color: color });
+        if (isSetWidth) this.putEdgeProperty(nextEdge.id, 'width', width);
 
         if (nextNode[traceNodePropName]) {
-            this.traceToNext(nextNode[traceNodePropName], traceEdgePropName, traceNodePropName);
+            this.traceToNext(nextNode[traceNodePropName], traceEdgePropName, traceNodePropName,
+                isSetWidth, width, isSetColor, color);
         }
 
     }

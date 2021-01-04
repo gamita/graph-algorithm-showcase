@@ -6,6 +6,7 @@ import AStarAlgorithm from './algorithms/AStarAlgorithm'
 import BellmanFordAlgorithm from './algorithms/BellmanFordAlgorithm'
 import AntColonyOptimizationAlgorithm from './algorithms/AntColonyOptimizationAlgorithm'
 import PrimAlgorithm from './algorithms/PrimAlgorithm'
+import FattestPathAlgorithm from './algorithms/FattestPathAlgorithm'
 
 
 export var breadthFirstSearch = new BreadthFirstSearchAlgorithm();
@@ -27,3 +28,6 @@ export var antColony = new AntColonyOptimizationAlgorithm();
 
 
 export var prim = new PrimAlgorithm();
+
+
+export var fattestPath = new FattestPathAlgorithm();
