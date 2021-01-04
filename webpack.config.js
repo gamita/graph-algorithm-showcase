@@ -93,6 +93,11 @@ module.exports = {
             filename: 'fattest-path.html',
         }),
 
+        new HtmlWebpackPlugin({
+            template: './html/topological-sort.html',
+            filename: 'topological-sort.html',
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
                 { from: "images", to: "images" },

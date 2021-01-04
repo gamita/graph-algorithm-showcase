@@ -235,5 +235,38 @@ export default class GraphCatalog {
     }
 
 
-}
 
+
+    /**
+     * Create Directed Acyclic Graph
+     * 
+     * @param size 
+     * @param lackRate 
+     */
+    public static createDAG(size: number, lackRate: number): Graph {
+
+
+        let dag: Graph = new Graph();
+        let currentNodeId: number = 0;
+        let random: Chance = new Chance('NiceSeed'); // seed = NiceSeed
+
+
+        // Add nodes
+        for (let index = 1; index <= size; index++) {
+            dag.addNode({ id: index, label: 'task-' + index });
+        }
+
+        // Add edges
+        for (let from = 1; from <= size; from++) {
+            for (let to = from + 1; to <= size; to++) {
+                if (random.floating({ min: 0, max: 1 }) >= lackRate) {
+                    dag.addEdge({ from: from, to: to, arrows: 'to' });
+                }
+            }
+        }
+
+        return dag;
+
+    }
+
+}
