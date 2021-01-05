@@ -9,7 +9,7 @@ export default class BreadthFirstSearchAlgorithm {
     private graph: Graph;
 
 
-    private queue: Array<number> = [];
+    private queue: Array<number | string> = [];
 
 
     private exitConditions: boolean = false;
@@ -114,7 +114,7 @@ export default class BreadthFirstSearchAlgorithm {
                 _this.graph.putNodeText(neighborNode.id, distance.toFixed(0));
                 _this.graph.putNodeColor(neighborNode.id, 'cornflowerblue');
 
-                _this.queue.push(<number>neighborNode.id);
+                _this.queue.push(neighborNode.id);
 
             }
 

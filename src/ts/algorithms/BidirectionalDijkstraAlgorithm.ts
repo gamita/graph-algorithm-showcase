@@ -14,7 +14,7 @@ export default class BidirectionalDijkstraAlgorithm {
     private fixedNodes: any = {}
 
 
-    private meetingNodeId: number;
+    private meetingNodeId: number | string;
 
 
     private exitConditions: boolean = false;
@@ -73,9 +73,9 @@ export default class BidirectionalDijkstraAlgorithm {
         this.graph.putNodeProperty(this.GOAL_NODE_ID, this.NAME_SPACE_GOAL + 'distance', 0);
 
         // add all nodes to the start node based unfixed node set and the goal node based unfixed node set.
-        this.distanceUnfixedNodes[this.NAME_SPACE_START] = new Set<number>();
-        this.distanceUnfixedNodes[this.NAME_SPACE_GOAL] = new Set<number>();
-        this.fixedNodes = new Set<number>();
+        this.distanceUnfixedNodes[this.NAME_SPACE_START] = new Set<number | string>();
+        this.distanceUnfixedNodes[this.NAME_SPACE_GOAL] = new Set<number | string>();
+        this.fixedNodes = new Set<number | string>();
         this.meetingNodeId = null;
 
         this.graph.getAllNodes().forEach((node: Node) => {
@@ -163,7 +163,7 @@ export default class BidirectionalDijkstraAlgorithm {
         // move the picked node from (name space) unfixed node set to (common) fixedNode set
         this.distanceUnfixedNodes[nameSpace].delete(minDistanceNode.id);
         if (this.fixedNodes.has(minDistanceNode.id)) {
-            this.meetingNodeId = <number>minDistanceNode.id;
+            this.meetingNodeId = minDistanceNode.id;
             this.graph.putNodeColor(minDistanceNode.id, 'gold'); // mark the meeting node.
             this.exitConditions = true;
             return;
@@ -183,10 +183,10 @@ export default class BidirectionalDijkstraAlgorithm {
         let _this = this;
 
         let minDistanceNodeId = Array.from(this.distanceUnfixedNodes[nameSpace]).sort(function (nodeId1, nodeId2) {
-            return _this.graph.getNode(<number>nodeId1)[nameSpace + 'distance'] - _this.graph.getNode(<number>nodeId2)[nameSpace + 'distance'];
+            return _this.graph.getNode(<number | string>nodeId1)[nameSpace + 'distance'] - _this.graph.getNode(<number | string>nodeId2)[nameSpace + 'distance'];
         })[0];
 
-        return _this.graph.getNode(<number>minDistanceNodeId);
+        return _this.graph.getNode(<number | string>minDistanceNodeId);
 
     }
 

@@ -8,7 +8,7 @@ export default class DijkstraAlgorithm {
 
 
     // distance unfixed node set
-    private distanceUnfixedNodes: Set<number> = new Set<number>();
+    private distanceUnfixedNodes: Set<number | string> = new Set<number | string>();
 
 
     private exitConditions: boolean = false;
@@ -59,9 +59,9 @@ export default class DijkstraAlgorithm {
         this.graph.putNodeProperty(this.START_NODE_ID, 'distance', 0);
 
         // add all nodes to a unfixed node set.
-        this.distanceUnfixedNodes = new Set<number>();
+        this.distanceUnfixedNodes = new Set<number | string>();
         this.graph.getAllNodes().forEach((node: Node) => {
-            this.distanceUnfixedNodes.add(<number>node.id);
+            this.distanceUnfixedNodes.add(node.id);
         });
 
         this.graph.drawAt("graph");
@@ -129,7 +129,7 @@ export default class DijkstraAlgorithm {
         })
 
         // remove the picked node from the unfixedNode set
-        this.distanceUnfixedNodes.delete(<number>minDistanceNode.id);
+        this.distanceUnfixedNodes.delete(minDistanceNode.id);
         if (minDistanceNode.id == this.GOAL_NODE_ID) {
             this.exitConditions = true;
         }

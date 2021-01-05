@@ -18,7 +18,7 @@ export default class AntColonyAlgorithm {
     private timeStep: number = 0;
 
 
-    private shortestEdgeIds: Set<number> = new Set();
+    private shortestEdgeIds: Set<number | string> = new Set();
 
 
     private shortestDistance: number = Number.MAX_VALUE;
@@ -155,7 +155,7 @@ export default class AntColonyAlgorithm {
      * 
      * @param answer 
      */
-    private displayCurrentShortest(answer: Set<number>) {
+    private displayCurrentShortest(answer: Set<number | string>) {
 
         let totalLength = 0;
         answer.forEach(edgeId => {
@@ -177,7 +177,7 @@ export default class AntColonyAlgorithm {
                 _this.graph.putEdgeProperty(edge.id, 'width', 1);
             });
             // set color on shortest path edges
-            this.shortestEdgeIds.forEach((edgeId: number) => {
+            this.shortestEdgeIds.forEach((edgeId: number | string) => {
                 _this.graph.putEdgeProperty(edgeId, 'color', { color: 'darkorange' });
                 _this.graph.putEdgeProperty(edgeId, 'width', 4);
             });
@@ -205,7 +205,7 @@ class Ant {
     private previousEdge: Edge;
 
 
-    private visitedEdgeIds: Set<number> = new Set();
+    private visitedEdgeIds: Set<number | string> = new Set();
 
 
     private readonly PHEROMONE_PRODUCTION_AMOUNT: number = 10000;
@@ -279,7 +279,7 @@ class Ant {
             // choice next walking edge by pheromone
             nextEdge = this.choseNextEdgeByPheromone();
         }
-        this.visitedEdgeIds.add(<number>nextEdge.id);
+        this.visitedEdgeIds.add(nextEdge.id);
 
         // Move to next node
         let nextNode: Node = this.graph.getOppositeSideNode(nextEdge.id, this.currentNode.id);
