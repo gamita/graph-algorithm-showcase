@@ -94,6 +94,11 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
+            template: './html/label-propagation.html',
+            filename: 'label-propagation.html',
+        }),
+
+        new HtmlWebpackPlugin({
             template: './html/topological-sort.html',
             filename: 'topological-sort.html',
         }),

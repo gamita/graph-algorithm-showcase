@@ -7,6 +7,7 @@ import BellmanFordAlgorithm from './algorithms/BellmanFordAlgorithm'
 import AntColonyOptimizationAlgorithm from './algorithms/AntColonyOptimizationAlgorithm'
 import PrimAlgorithm from './algorithms/PrimAlgorithm'
 import FattestPathAlgorithm from './algorithms/FattestPathAlgorithm'
+import LabelPropagationAlgorithm from './algorithms/LabelPropagationAlgorithm'
 import TopologicalSortAlgorithm from './algorithms/TopologicalSortAlgorithm'
 
 
@@ -32,6 +33,9 @@ export var prim = new PrimAlgorithm();
 
 
 export var fattestPath = new FattestPathAlgorithm();
+
+
+export var labelPropagation = new LabelPropagationAlgorithm();
 
 
 export var topologicalSort = new TopologicalSortAlgorithm();
