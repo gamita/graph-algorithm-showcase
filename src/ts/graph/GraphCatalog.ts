@@ -114,7 +114,7 @@ export default class GraphCatalog {
         managementInfo.noChildNodeIds.push(0);
         hierarchyGraph.addNode({ id: 0 });
 
-        while (hierarchyGraph.getAllNodes().length <= managementInfo.maxTotalNodes) {
+        while (hierarchyGraph.getAllNodes().length < managementInfo.maxTotalNodes) {
 
             let parentNodeId = managementInfo.noChildNodeIds.shift()
 
@@ -145,7 +145,7 @@ export default class GraphCatalog {
 
         for (let childIndex = 1; childIndex <= numberOfChild; childIndex++) {
 
-            if (hierarchyGraph.getAllNodes().length > managementInfo.maxTotalNodes) {
+            if (hierarchyGraph.getAllNodes().length >= managementInfo.maxTotalNodes) {
                 return;
             }
 

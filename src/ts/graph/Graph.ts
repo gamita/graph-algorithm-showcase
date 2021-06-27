@@ -44,6 +44,21 @@ export default class Graph {
 
 
     /**
+     * Return shuffled all nodes of this graph
+     * 
+     * @param shuffleSeed 
+     * @returns 
+     */
+    public getShuffledAllNodes(shuffleSeed: string): Array<Node> {
+
+        let shuffler: Chance = new Chance(shuffleSeed);
+
+        return shuffler.shuffle(this.graphDataSet.nodes.get());
+
+    }
+
+
+    /**
      * Return a matched node object by node ID
      * 
      * @param nodeId 
@@ -61,6 +76,24 @@ export default class Graph {
         return this.graphDataSet.edges;
 
     }
+
+
+
+    /**
+     * Return shuffled all edges of this graph
+     * 
+     * @param shuffleSeed 
+     * @returns 
+     */
+    public getShuffledAllEdges(shuffleSeed: string): Array<Edge> {
+
+        let shuffler: Chance = new Chance(shuffleSeed);
+
+        return shuffler.shuffle(this.graphDataSet.edges.get());
+
+    }
+
+
 
     /**
      * Return a matched edge object by edge ID 
@@ -460,7 +493,7 @@ export default class Graph {
      */
     private draw(domElementId: string, physics: boolean): void {
 
-        var options = {
+        let options = {
             layout: {
                 randomSeed: 1234,
             },
@@ -486,13 +519,17 @@ export default class Graph {
                     size: 18
                 },
             },
-            physics: physics,
+            physics: {
+                enabled: physics,
+                solver: 'forceAtlas2Based'
+            },
             interaction: {
                 navigationButtons: true,
                 hideEdgesOnDrag: true,
                 //keyboard: true,
             },
         };
+
 
         let container: any = null;
         container = document.getElementById(domElementId);

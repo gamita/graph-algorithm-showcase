@@ -5,14 +5,11 @@ import GraphCatalog from '../graph/GraphCatalog';
 
 export default class LabelPropagationAlgorithm {
 
+
     private graph: Graph;
 
 
     private readonly NUM_OF_NODES: number = 100;
-
-
-    private readonly NUM_ITERATION: number = 10;
-
 
 
     /**
@@ -21,16 +18,17 @@ export default class LabelPropagationAlgorithm {
      */
     public createGraph(): void {
 
+
         // create graph
-        this.graph = GraphCatalog.createHierarchy(this.NUM_OF_NODES, 10);
+        this.graph = GraphCatalog.createHierarchy(this.NUM_OF_NODES, 7);
 
-        this.graph.putAllNodeProperty("size", 20);
-        let randomColor: Chance = new Chance("GoodSeed");
+        this.graph.putAllNodeProperty("size", 25);
+        let randomColor: Chance = new Chance("ColorSeed");
 
-        for (let nodeId = 0; nodeId < this.graph.getAllNodes().length; nodeId++) {
-            this.graph.putNodeColor(nodeId, randomColor.color());
-            this.graph.putNodeText(nodeId, "" + nodeId);
-        }
+        let _this = this;
+        this.graph.getAllNodes().forEach(node => {
+            _this.graph.putNodeColor(node.id, randomColor.color({ format: 'hex' }));
+        })
 
         // draw graph
         this.graph.drawPhysicallyAt("graph");
@@ -45,26 +43,9 @@ export default class LabelPropagationAlgorithm {
      */
     public run(): void {
 
-        let _this = this;
-        let iteration = 0;
-
-        let intervalTimer = setInterval(function name() {
-
-            _this.graph.offRendering();
-
-            //-- main step --//
-            _this.step();
-            iteration++;
-
-            // exit condition
-            if (iteration >= _this.NUM_ITERATION) {
-
-                clearInterval(intervalTimer);
-            }
-
-            _this.graph.drawPhysicallyAt("graph");
-
-        }, 3000);
+        this.graph.offRendering();
+        this.step();
+        this.graph.drawPhysicallyAt("graph");
 
     }
 
@@ -77,16 +58,12 @@ export default class LabelPropagationAlgorithm {
     private step() {
 
         let _this = this;
-        let nodeIds = Array.from(new Array(this.NUM_OF_NODES)).map((v, i) => i);
-        let shuffler: Chance = new Chance();
-        let shuffledNodeIds = shuffler.shuffle(nodeIds);
 
-        shuffledNodeIds.forEach(nodeId => {
+        _this.graph.getShuffledAllNodes("ShuffleSeed").forEach(node => {
 
-            let neighbors = _this.graph.getNeighborNodesOf(nodeId);
-            let popularColor: string = _this.getClusterColor(neighbors);
+            let majorityColor: string = _this.getMajorityColorOf(node);
 
-            _this.graph.putNodeColor(nodeId, popularColor);
+            _this.graph.putNodeColor(node.id, majorityColor);
 
         });
 
@@ -94,30 +71,38 @@ export default class LabelPropagationAlgorithm {
 
 
 
-    private getClusterColor(neighbors: Array<Node>): string {
+    /**
+     * Get a surround majority color of given node.
+     * 
+     * @param node 
+     * @returns 
+     */
+    private getMajorityColorOf(node: Node): string {
 
-        let clusterColor: string = "";
+        let majorityColor: string = "";
+        let majorityCount = 0;
         let counter = new Map();
-        let maxCount = 0;
+
+        let neighbors = this.graph.getNeighborNodesOf(node.id);
 
         neighbors.forEach(neighbor => {
 
-            let currentColor: string = neighbor.color.toString();
+            let neighborColor: string = neighbor.color.toString();
 
-            if (counter.has(currentColor)) {
-                counter.set(currentColor, counter.get(currentColor) + 1);
+            if (counter.has(neighborColor)) {
+                counter.set(neighborColor, counter.get(neighborColor) + 1);
             } else {
-                counter.set(currentColor, 1);
+                counter.set(neighborColor, 1);
             }
 
-            if (counter.get(currentColor) > maxCount) {
-                clusterColor = currentColor;
-                maxCount = counter.get(currentColor);
+            if (counter.get(neighborColor) > majorityCount) {
+                majorityColor = neighborColor;
+                majorityCount = counter.get(neighborColor);
             }
 
         });
 
-        return clusterColor;
+        return majorityColor;
 
     }
 
