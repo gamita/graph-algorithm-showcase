@@ -11,6 +11,20 @@
     <h2 style="display: inline;">Shortest Pass: Ant Colony Optimization</h2>
     <a href="#!" style="margin-left: 50px;" onclick="window.open('https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms')">Wikipedia Link &#x2197;</a>
     <hr />
+    <article class="description">
+        This demo visualizes a process of Ant Colony Optimization (Please click Step 1 "Graph" button, then click Step2 "Run" button). 
+        Ant Colony Optimization is based on ant behavior in nature world. 
+        When ants find their foods, they brings it back to their nest as emitting their pheromone on the path.
+        The pheromone volatilizes with time. 
+        Hence, if the way to food (our goal node) is longer distance, the pheromone tends to volatilize much more, 
+        the rest of pheromone on the path reduces.
+        Ants tend to prefer stronger pheromone path, it means ants collect around shorter path.
+        If some of those ants finds new shorter path than known paths, a stronger pheromone path is gotten.
+        The rest is just a repetition.
+        This demo simulates ant's pheromone amount (yellow background) on the way and the shortest path (red line) that ants find. 
+        The number emerging below the goal node is a distance of shortest path that ant found as of the time.
+        For more detail, please check the above wiki link.
+    </article>
     <label>Step1: Create Graph </label>
     <button onclick="antColony.createGraph()">Graph</button>
     <label style="margin: 30px;"> >> </label>

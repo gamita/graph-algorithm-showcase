@@ -11,6 +11,14 @@
     <h2 style="display: inline;">Shortest Pass: Bellman Ford Algorithm</h2>
     <a href="#!" style="margin-left: 50px;" onclick="window.open('https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm')">Wikipedia Link &#x2197;</a>
     <hr />
+    <article class="description">
+        This demo visualizes a process of Bellman-Ford Algorithm (Please click Step 1 "Graph" button, then click Step2 "Run" button). 
+        Dijkstra's Algorithm can be applied to only graphs including non-negative length (weight) edges,
+        while Bellman-Ford Algorithm can be applied to graphs even including negative length (weight) edges. 
+        This demo use the following directed graph has length - 100 edges (dot-line), and does not have cycles with negative length.
+        The number emerging below each node is the updated shortest distance between the start node and its node.
+        For more detail, please check the above wiki link.
+    </article>
     <label>Step1: Create Graph </label>
     <button onclick="bellmanFord.createGraph()">Graph</button>
     <label style="margin: 30px;"> >> </label>

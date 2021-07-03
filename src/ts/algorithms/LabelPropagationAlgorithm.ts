@@ -72,7 +72,7 @@ export default class LabelPropagationAlgorithm {
 
 
     /**
-     * Get a surround majority color of given node.
+     * Get a surrounding majority color of given node.
      * 
      * @param node 
      * @returns 
