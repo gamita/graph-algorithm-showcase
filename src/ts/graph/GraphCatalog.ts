@@ -243,17 +243,17 @@ export default class GraphCatalog {
      * @param size 
      * @param lackRate 
      */
-    public static createDAG(size: number, lackRate: number): Graph {
+    public static createDAG(size: number, lackRate: number, textPrefix: string): Graph {
 
 
         let dag: Graph = new Graph();
         let currentNodeId: number = 0;
-        let random: Chance = new Chance('NiceSeed'); // seed = NiceSeed
+        let random: Chance = new Chance('GoodSeed'); // seed = NiceSeed
 
 
         // Add nodes
         for (let index = 1; index <= size; index++) {
-            dag.addNode({ id: index, label: 'task-' + index });
+            dag.addNode({ id: index, label: textPrefix + String.fromCodePoint(64 + index) });
         }
 
         // Add edges

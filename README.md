@@ -26,7 +26,7 @@ This project is a showcase of several graph algorithm demos. The showcase includ
 in preparation now
 
 ### Other
-- Topological Sort ( in preparation now )
+- Topological Sort
 
 
 ## Tech Stack

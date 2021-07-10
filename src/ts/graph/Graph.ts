@@ -310,6 +310,19 @@ export default class Graph {
     }
 
 
+    /**
+     * Append a node label property
+     * 
+     * @param nodeId 
+     * @param appendLabelText 
+     */
+    public putNodeTextAppend(nodeId: string | number, appendLabelText: string) {
+
+        this.putNodeProperty(nodeId, 'label', this.getNode(nodeId).label + appendLabelText);
+
+    }
+
+
 
     /**
      * Put a node font property
@@ -416,6 +429,20 @@ export default class Graph {
     public putEdgeText(edgeId: string | number, labelText: string) {
 
         this.putEdgeProperty(edgeId, 'label', labelText);
+
+    }
+
+
+
+    /**
+     * Put a edge color property
+     * 
+     * @param edgeId 
+     * @param color 
+     */
+    public putEdgeColor(edgeId: string | number, color: string) {
+
+        this.putEdgeProperty(edgeId, 'color', color);
 
     }
 
