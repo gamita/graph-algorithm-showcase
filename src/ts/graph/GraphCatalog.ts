@@ -240,6 +240,8 @@ export default class GraphCatalog {
     /**
      * Create Directed Acyclic Graph
      * 
+     * Occasionally, the created graph includes isolation nodes
+     * 
      * @param size 
      * @param lackRate 
      */
@@ -248,7 +250,7 @@ export default class GraphCatalog {
 
         let dag: Graph = new Graph();
         let currentNodeId: number = 0;
-        let random: Chance = new Chance('GoodSeed'); // seed = NiceSeed
+        let random: Chance = new Chance('GoodSeed!'); // seed = GoodSeed!
 
 
         // Add nodes
