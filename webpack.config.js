@@ -5,7 +5,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
 
-    mode: 'development',
+    mode: 'production',
 
     context: path.join(__dirname, 'src'),
 
