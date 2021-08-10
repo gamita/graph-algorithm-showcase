@@ -1,6 +1,9 @@
 # Graph Algorithm Showcase
 This project is a showcase of several graph algorithm demos. The showcase includes Path Finding algorithms, Community Detection algorithms, Centrality algorithms and so on. Algorithms will be added one by one. This application is written by TypeScript (transpiling to JavaScript), so you can easily run this application on your browser even under off-line environment.
 
+#### Demo Site
+https://graph-algorithm-showcase.info
+
 <img src="./src/images/showcase.png" style="margin: 50px;">
 
 
