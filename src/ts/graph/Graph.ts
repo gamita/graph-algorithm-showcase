@@ -136,6 +136,52 @@ export default class Graph {
 
 
     /**
+     * Return in-toward-connected nodes of arg node
+     * 
+     * @param nodeId 
+     */
+    public getInNeighborNodesOf(nodeId: string | number): Array<Node> {
+
+        let adjacentNodes = new Array<Node>();
+
+        // by linear search
+        this.graphDataSet.edges.forEach((edge: Edge) => {
+
+            if (edge.to == nodeId) {
+                adjacentNodes.push(this.getNode(edge.from));
+            }
+
+        })
+
+        return adjacentNodes;
+
+    }
+
+
+    /**
+     * Return out-toward-connected nodes of arg node
+     * 
+     * @param nodeId 
+     */
+    public getOutNeighborNodesOf(nodeId: string | number): Array<Node> {
+
+        let adjacentNodes = new Array<Node>();
+
+        // by linear search
+        this.graphDataSet.edges.forEach((edge: Edge) => {
+
+            if (edge.from == nodeId) {
+                adjacentNodes.push(this.getNode(edge.from));
+            }
+
+        })
+
+        return adjacentNodes;
+
+    }
+
+
+    /**
      * Return connected edges of arg node
      * 
      * @param nodeId 

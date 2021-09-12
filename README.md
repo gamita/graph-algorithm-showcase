@@ -27,6 +27,7 @@ https://graph-algorithm-showcase.info
 
 ### Centrality
 - Degree Centrality
+- Page Rank
 
 ### Other
 - Topological Sort
