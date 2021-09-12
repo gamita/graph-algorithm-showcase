@@ -108,6 +108,11 @@ module.exports = {
             filename: 'degree-centrality.html',
         }),
 
+        new HtmlWebpackPlugin({
+            template: './html/page-rank.html',
+            filename: 'page-rank.html',
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
                 { from: "images", to: "images" },
