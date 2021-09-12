@@ -298,6 +298,20 @@ export default class Graph {
 
 
     /**
+     * Put a node size property
+     * 
+     * @param nodeId 
+     * @param color 
+     */
+    public putNodeSize(nodeId: string | number, size: number) {
+
+        this.putNodeProperty(nodeId, 'size', size);
+
+    }
+
+
+
+    /**
      * Put a node label property
      * 
      * @param nodeId 

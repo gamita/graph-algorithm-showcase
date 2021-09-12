@@ -26,7 +26,7 @@ https://graph-algorithm-showcase.info
 - Label Propagation
 
 ### Centrality
-in preparation now
+- Degree Centrality
 
 ### Other
 - Topological Sort

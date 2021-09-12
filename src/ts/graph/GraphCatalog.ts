@@ -271,4 +271,62 @@ export default class GraphCatalog {
 
     }
 
+
+    /**
+     * Create Graph for Centrality Demos
+     * 
+     * @returns graph
+     */
+    public static createDemoGraphOfCentrality(): Graph {
+
+        let centralityGraph: Graph = new Graph();
+        centralityGraph.addNode({ id: 1, x: 0, y: 0 });
+        centralityGraph.addNode({ id: 2, x: 240, y: 60 });
+        centralityGraph.addNode({ id: 3, x: -100, y: 160 });
+        centralityGraph.addNode({ id: 4, x: -190, y: -120 });
+        centralityGraph.addNode({ id: 5, x: 60, y: -140 });
+        centralityGraph.addNode({ id: 6, x: 240, y: -140 });
+        centralityGraph.addNode({ id: 7, x: -240, y: 40 });
+        centralityGraph.addNode({ id: 8, x: -160, y: 260 });
+        centralityGraph.addNode({ id: 9, x: -220, y: 400 });
+        centralityGraph.addNode({ id: 10, x: 340, y: 160 });
+        centralityGraph.addNode({ id: 11, x: 500, y: 140 });
+        centralityGraph.addNode({ id: 12, x: 110, y: 230 });
+        centralityGraph.addNode({ id: 13, x: -380, y: 450 });
+        centralityGraph.addNode({ id: 14, x: 160, y: 420 });
+        centralityGraph.addNode({ id: 15, x: 360, y: 360 });
+        centralityGraph.addNode({ id: 16, x: 510, y: 450 });
+        centralityGraph.addNode({ id: 17, x: -140, y: -260 });
+        centralityGraph.addNode({ id: 18, x: -370, y: -270 });
+        centralityGraph.addNode({ id: 19, x: -440, y: 120 });
+        centralityGraph.addNode({ id: 20, x: 180, y: -240 });
+
+        centralityGraph.addEdge({ from: 2, to: 1, arrows: 'to' });
+        centralityGraph.addEdge({ from: 4, to: 1, arrows: 'to' });
+        centralityGraph.addEdge({ from: 4, to: 7, arrows: 'to' });
+        centralityGraph.addEdge({ from: 4, to: 17, arrows: 'to' });
+        centralityGraph.addEdge({ from: 5, to: 1, arrows: 'to' });
+        centralityGraph.addEdge({ from: 6, to: 1, arrows: 'to' });
+        centralityGraph.addEdge({ from: 6, to: 5, arrows: 'to' });
+        centralityGraph.addEdge({ from: 7, to: 19, arrows: 'to' });
+        centralityGraph.addEdge({ from: 1, to: 12, arrows: 'to' });
+        centralityGraph.addEdge({ from: 1, to: 3, arrows: 'to' });
+        centralityGraph.addEdge({ from: 3, to: 7, arrows: 'to' });
+        centralityGraph.addEdge({ from: 8, to: 3, arrows: 'to' });
+        centralityGraph.addEdge({ from: 8, to: 14, arrows: 'to' });
+        centralityGraph.addEdge({ from: 9, to: 8, arrows: 'to' });
+        centralityGraph.addEdge({ from: 12, to: 10, arrows: 'to' });
+        centralityGraph.addEdge({ from: 10, to: 11, arrows: 'to' });
+        centralityGraph.addEdge({ from: 13, to: 9, arrows: 'to' });
+        centralityGraph.addEdge({ from: 14, to: 12, arrows: 'to' });
+        centralityGraph.addEdge({ from: 14, to: 15, arrows: 'to' });
+        centralityGraph.addEdge({ from: 15, to: 12, arrows: 'to' });
+        centralityGraph.addEdge({ from: 16, to: 15, arrows: 'to' });
+        centralityGraph.addEdge({ from: 17, to: 18, arrows: 'to' });
+        centralityGraph.addEdge({ from: 20, to: 5, arrows: 'to' });
+        centralityGraph.addEdge({ from: 20, to: 17, arrows: 'to' });
+
+        return centralityGraph;
+    }
+
 }

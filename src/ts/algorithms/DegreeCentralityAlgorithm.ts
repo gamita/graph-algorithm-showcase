@@ -1,6 +1,6 @@
 import Graph from '../graph/Graph'
 import GraphCatalog from '../graph/GraphCatalog'
-import { Node, Edge } from 'vis-network'
+import { Node } from 'vis-network'
 
 
 export default class DegreeCentralityAlgorithm {
@@ -9,10 +9,10 @@ export default class DegreeCentralityAlgorithm {
     private graph: Graph;
 
 
-    private nonRefedNodes: Array<Node> = [];
+    private readonly NODE_DISPLAY_SIZE_COEF = 64;
 
 
-    private currentOrder = 0;
+    private readonly NODE_DISPLAY_MIN_SIZE = 3;
 
 
 
@@ -22,7 +22,11 @@ export default class DegreeCentralityAlgorithm {
      */
     public createGraph(): void {
 
-        // TODO
+        // create graph for centrality demo 
+        this.graph = GraphCatalog.createDemoGraphOfCentrality();
+
+        // draw graph
+        this.graph.drawAt("graph");
 
     }
 
@@ -32,7 +36,11 @@ export default class DegreeCentralityAlgorithm {
      */
     public run(): void {
 
-        // TODO
+        this.graph.offRendering(); // a routine step against rendering performance
+
+        this.step();
+
+        this.graph.drawAt("graph");
 
     }
 
@@ -44,7 +52,20 @@ export default class DegreeCentralityAlgorithm {
      */
     private step() {
 
-        // TODO
+        let _this = this;
+
+        this.graph.getAllNodes().forEach((node: Node) => {
+
+            // counting the number of in-neighbors
+            let countOfInNeighbor = _this.graph.getNeighborInEdgesOf(node.id).length;
+
+            // display the degree centrality value on graph.
+            _this.graph.putNodeFont(node.id, "20px arial steelblue");
+            _this.graph.putNodeText(node.id, countOfInNeighbor.toFixed());
+            // node size is proportional to square root of in-neighbors. (just for apparent impression.) 
+            _this.graph.putNodeSize(node.id, Math.max(Math.sqrt(countOfInNeighbor * _this.NODE_DISPLAY_SIZE_COEF), _this.NODE_DISPLAY_MIN_SIZE));
+
+        })
 
     }
 
