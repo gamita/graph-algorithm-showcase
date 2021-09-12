@@ -9,6 +9,7 @@ import PrimAlgorithm from './algorithms/PrimAlgorithm'
 import FattestPathAlgorithm from './algorithms/FattestPathAlgorithm'
 import LabelPropagationAlgorithm from './algorithms/LabelPropagationAlgorithm'
 import TopologicalSortAlgorithm from './algorithms/TopologicalSortAlgorithm'
+import DegreeCentralityAlgorithm from "./algorithms/DegreeCentralityAlgorithm";
 
 
 export var breadthFirstSearch = new BreadthFirstSearchAlgorithm();
@@ -39,3 +40,6 @@ export var labelPropagation = new LabelPropagationAlgorithm();
 
 
 export var topologicalSort = new TopologicalSortAlgorithm();
+
+
+export var degreeCentrality = new DegreeCentralityAlgorithm();

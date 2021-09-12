@@ -103,6 +103,11 @@ module.exports = {
             filename: 'topological-sort.html',
         }),
 
+        new HtmlWebpackPlugin({
+            template: './html/degree-centrality.html',
+            filename: 'degree-centrality.html',
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
                 { from: "images", to: "images" },
