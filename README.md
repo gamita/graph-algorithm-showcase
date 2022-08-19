@@ -41,7 +41,7 @@ https://graph-algorithm-showcase.info
 - **Usage Library:** Vis-Network.js, React, MUI
 
 
-## Getting Started
+## Build & Deploy
 
 This section mentions how to build and deploy the project; however, if you need not build or deploy on your own, just access the above demo site to check the algorithm's behavior.
 
