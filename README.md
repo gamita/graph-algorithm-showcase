@@ -54,6 +54,7 @@ This section mentions how to build and deploy the project; however, if you need 
 
 ``` 
 cd graph-algorithm-showcase    # move to the project root directory.
+npm install
 npm start
 ```
 After the start command, the necessary libraries will be set up, and the debug-mode application will be launched. 
