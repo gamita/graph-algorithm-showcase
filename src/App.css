@@ -1,0 +1,26 @@
+body {
+  color: #3F3F3F;
+  font-size: 18px;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 50px 10% 100px 10%;
+  background-color: white;
+}
+
+hr {
+  border: solid 1.5px whitesmoke;
+  margin-bottom: 30px;
+}
+
+.link {
+  text-decoration: underline;
+  color: #1976d2;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #40a6ff;
+}
+
+.pale-text {
+  color: gray;
+}
