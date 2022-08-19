@@ -50,25 +50,25 @@ This section mentions how to build and deploy the project; however, if you need 
 - Node.js  ( later version 14.x )
 - Web Browser ( e.g. Chrome, Firefox, Edge )
 
-#### Setup & Debug
+### Setup & Debug
 
 ``` 
 cd graph-algorithm-showcase    # move to the project root directory.
 npm install
 npm start
 ```
-After the start command, the necessary libraries will be set up, and the debug-mode application will be launched. 
+After the install and start commands, the necessary libraries will be set up, and then the debug-mode application will be launched. 
 
 (See package.json for more library details.)
 
-#### Production Build
+### Production Build
 ``` 
 cd graph-algorithm-showcase    # move to the project root directory.
 npm run build
 ```
 After the build command, all the bundled files (JavaScript, CSS, and HTML) will be output into the /build directory.
 
-#### Deploy on Your Local
+### Deploy on Your Local
 ``` 
 cd graph-algorithm-showcase    # move to the project root directory.
 npm install -g serve    # If you've already installed "serve", then skip.
